@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Container } from "semantic-ui-react";
 import EventDashboard from "../../features/events/eventDashboard/EventDashboard";
 import NavBar from "../../features/nav/NavBar";
-// git test sadfsdaf
-// ddd
 
 function App() {
   const [formOpen, setFormOpen] = useState(false);
