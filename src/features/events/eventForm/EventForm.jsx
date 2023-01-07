@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Header, Segment, Form, Button } from "semantic-ui-react";
-
+//heloo
 export default function EventForm({ setFormOpen, setEvnets }) {
   const intialValues = {
     titel: "",
