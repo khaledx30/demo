@@ -1,7 +1,9 @@
+import cuid from "cuid";
 import React, { useState } from "react";
 import { Header, Segment, Form, Button } from "semantic-ui-react";
+// import ErrorBoundary from "./CrashableComponent ";
 //heloo
-export default function EventForm({ setFormOpen, setEvnets }) {
+export default function EventForm({ setFormOpen, setEvnets, creatEvent }) {
   const intialValues = {
     titel: "",
     category: "",
@@ -12,8 +14,15 @@ export default function EventForm({ setFormOpen, setEvnets }) {
   };
   const [values, setValues] = useState(intialValues);
 
-  function handelFormSubmit(e) {
-    console.log(values);
+  function handelFormSubmit() {
+    creatEvent({
+      ...values,
+      id: cuid(),
+      hostedBy: "khaled",
+      attendees: [],
+      hostPhotoURL: "/assets/user.png",
+    });
+    setFormOpen(false);
   }
 
   function handelInputChange(e) {
