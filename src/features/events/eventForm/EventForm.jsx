@@ -3,8 +3,13 @@ import React, { useState } from "react";
 import { Header, Segment, Form, Button } from "semantic-ui-react";
 // import ErrorBoundary from "./CrashableComponent ";
 //heloo
-export default function EventForm({ setFormOpen, setEvnets, creatEvent }) {
-  const intialValues = {
+export default function EventForm({
+  setFormOpen,
+  setEvnets,
+  creatEvent,
+  selectedEvent,
+}) {
+  const intialValues = selectedEvent ?? {
     titel: "",
     category: "",
     city: "",
