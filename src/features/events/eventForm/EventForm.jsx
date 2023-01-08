@@ -8,9 +8,10 @@ export default function EventForm({
   setEvnets,
   creatEvent,
   selectedEvent,
+  updatedEvent,
 }) {
   const intialValues = selectedEvent ?? {
-    titel: "",
+    title: "",
     category: "",
     city: "",
     description: "",
@@ -20,33 +21,38 @@ export default function EventForm({
   const [values, setValues] = useState(intialValues);
 
   function handelFormSubmit() {
-    creatEvent({
-      ...values,
-      id: cuid(),
-      hostedBy: "khaled",
-      attendees: [],
-      hostPhotoURL: "/assets/user.png",
-    });
+    selectedEvent
+      ? updatedEvent({ ...selectedEvent, ...values })
+      : creatEvent({
+          ...values,
+          id: cuid(),
+          hostedBy: "khaled",
+          attendees: [],
+          hostPhotoURL: "/assets/user.png",
+        });
     setFormOpen(false);
   }
 
   function handelInputChange(e) {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
+    // console.log(e);
   }
 
   return (
     <>
       <Segment clearing>
         {" "}
-        <Header content="Creat New Event" />
+        <Header
+          content={selectedEvent ? "Edit the event" : "Creat New Event"}
+        />
         <Form onSubmit={handelFormSubmit}>
           <Form.Field>
             <input
               type="text"
               placeholder="Event Titel"
-              name="titel"
-              value={values.titel}
+              name="title "
+              value={values.title}
               onChange={(e) => handelInputChange(e)}
             />
           </Form.Field>

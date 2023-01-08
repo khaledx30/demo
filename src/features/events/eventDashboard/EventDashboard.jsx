@@ -15,6 +15,14 @@ export default function EventDashboard({
     setEvnets([...events, event]);
   }
 
+  function handleUpdateEvent(updatedEvent) {
+    setEvnets(
+      events.map((evt) => (evt.id === updatedEvent.id ? updatedEvent : evt))
+    );
+    selectEvent(null);
+    setFormOpen(false);
+  }
+
   return (
     <>
       <Grid>
@@ -28,6 +36,7 @@ export default function EventDashboard({
               setEvents={setEvnets}
               creatEvent={handelCreatEvent}
               selectedEvent={selectedEvent}
+              updatedEvent={handleUpdateEvent}
               // key={selectedEvent ? selectedEvent.id : null}
             />
           )}

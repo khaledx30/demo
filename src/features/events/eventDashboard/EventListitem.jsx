@@ -12,7 +12,7 @@ export default function EventListItem({ event, selectEvent }) {
               <Item.Image size="tiny" circular src={event.hostPhotoURL} />
               <Item.Content>
                 <Item.Header content={event.title} />
-                <Item.Description>Hosted{event.hostBy}</Item.Description>
+                <Item.Description>Hosted {event.hostedBy}</Item.Description>
               </Item.Content>
             </Item>
           </Item.Group>
