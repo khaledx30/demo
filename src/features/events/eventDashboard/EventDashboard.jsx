@@ -9,11 +9,17 @@ export default function EventDashboard({ formOpen, setFormOpen }) {
   function handelCreatEvent(event) {
     setEvnets([...events, event]);
   }
+  const [selectEvent, setSelectedEvent] = useState(null);
+
+  function handelSelectEvent(event) {
+    setSelectedEvent(event);
+    setFormOpen(true);
+  }
   return (
     <>
       <Grid>
         <Grid.Column width={10}>
-          <EventList events={events} />
+          <EventList events={events} selectEvent={handelSelectEvent} />
         </Grid.Column>
         <Grid.Column width={6}>
           {formOpen && (
