@@ -4,6 +4,7 @@ import EventForm from "../eventForm/EventForm";
 import EventList from "./EventList";
 import { sampleData } from "../../../app/api/sampleData";
 export default function EventDashboard({
+  props,
   formOpen,
   setFormOpen,
   selectEvent,
@@ -37,7 +38,7 @@ export default function EventDashboard({
               creatEvent={handelCreatEvent}
               selectedEvent={selectedEvent}
               updatedEvent={handleUpdateEvent}
-              // key={selectedEvent ? selectedEvent.id : null}
+              key={selectedEvent ? selectedEvent.id : null}
             />
           )}
         </Grid.Column>

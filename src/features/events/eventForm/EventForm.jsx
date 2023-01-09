@@ -36,7 +36,6 @@ export default function EventForm({
   function handelInputChange(e) {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    // console.log(e);
   }
 
   return (
