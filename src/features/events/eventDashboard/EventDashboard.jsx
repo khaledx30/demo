@@ -4,7 +4,6 @@ import EventForm from "../eventForm/EventForm";
 import EventList from "./EventList";
 import { sampleData } from "../../../app/api/sampleData";
 export default function EventDashboard({
-  props,
   formOpen,
   setFormOpen,
   selectEvent,
@@ -24,11 +23,19 @@ export default function EventDashboard({
     setFormOpen(false);
   }
 
+  function handelDeleteEvent(eventId) {
+    setEvnets(events.filter((evt) => evt.id !== eventId));
+  }
+
   return (
     <>
       <Grid>
         <Grid.Column width={10}>
-          <EventList events={events} selectEvent={selectEvent} />
+          <EventList
+            events={events}
+            selectEvent={selectEvent}
+            deleteEvent={handelDeleteEvent}
+          />
         </Grid.Column>
         <Grid.Column width={6}>
           {formOpen && (

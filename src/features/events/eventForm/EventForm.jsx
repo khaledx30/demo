@@ -41,7 +41,7 @@ export default function EventForm({
   return (
     <>
       <Segment clearing>
-        {" "}
+        {""}
         <Header
           content={selectedEvent ? "Edit the event" : "Creat New Event"}
         />
