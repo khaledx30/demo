@@ -11,7 +11,7 @@ export default function EventForm({
   updatedEvent,
 }) {
   const intialValues = selectedEvent ?? {
-    title: "",
+    // title: "",
     category: "",
     city: "",
     description: "",
