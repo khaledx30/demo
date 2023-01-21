@@ -6,6 +6,7 @@ import EventDetailed from "../../features/events/eventDitailed/EventDetalied";
 import EventForm from "../../features/events/eventForm/EventForm";
 import Home from "../../features/home/Home";
 import NavBar from "../../features/nav/NavBar";
+import Test from "../../features/sandbox/Test";
 // here is comment from git hub rebo lol
 function App() {
   const [formOpen, setFormOpen] = useState(false);
@@ -30,6 +31,7 @@ function App() {
             <NavBar setFormOpen={handelCreateFormOpen} />
             <Container className="main">
               <Route exact path={"/events"} component={EventDashboard}></Route>
+              <Route exact path={"/test"} component={Test}></Route>
               <Route
                 exact
                 path={"/events/:id"}

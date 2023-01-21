@@ -1,15 +1,20 @@
 import cuid from "cuid";
 import React, { useState } from "react";
 import { Header, Segment, Form, Button } from "semantic-ui-react";
+import { useSelector, useDispatch } from "react-redux";
+import { creatEvent } from "../eventReducer";
+
 // import ErrorBoundary from "./CrashableComponent ";
 //heloo
 export default function EventForm({
   setFormOpen,
   setEvnets,
-  creatEvent,
+  // creatEvent,
   selectedEvent,
   updatedEvent,
 }) {
+  const events = useSelector((state) => state.eventCrud.value);
+  const dispatch = useDispatch();
   const intialValues = selectedEvent ?? {
     // title: "",
     category: "",
@@ -20,18 +25,22 @@ export default function EventForm({
   };
   const [values, setValues] = useState(intialValues);
   //heloo
-
+  // const mo = {
+  //   ...events,
+  //   id: cuid(),
+  //   hostedBy: "khaled",
+  //   attendees: [],
+  //   hostPhotoURL: "/assets/user.png",
+  // };
   function handelFormSubmit() {
     selectedEvent
       ? updatedEvent({ ...selectedEvent, ...values })
-      : creatEvent({
-          ...values,
-          id: cuid(),
-          hostedBy: "khaled",
-          attendees: [],
-          hostPhotoURL: "/assets/user.png",
-        });
-    setFormOpen(false);
+      : dispatch(
+          creatEvent({
+            ...events,
+          })
+        );
+    // setFormOpen(false);
   }
 
   function handelInputChange(e) {

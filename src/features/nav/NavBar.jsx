@@ -23,7 +23,8 @@ export default function NavBar({ setFormOpen }) {
           ></img>
           Re-vents
         </Menu.Item>
-        <Menu.Item as={NavLink} to="events" name="Events" />
+        <Menu.Item as={NavLink} exact to="/events" name="Events" />
+        <Menu.Item as={NavLink} exact to="/test" name="test" />
         {authanticted && (
           <Menu.Item as={NavLink} to="createEvent">
             <Button positive inverted content="Create Event" />
