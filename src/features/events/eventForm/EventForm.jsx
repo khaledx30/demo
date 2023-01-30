@@ -26,7 +26,9 @@ export default function EventForm({
     date: "",
   };
   const [values, setValues] = useState(initialValues);
-  const valdationSchema = Yup.object({ title: Yup.string().required() });
+  const valdationSchema = Yup.object({
+    title: Yup.string().required("please enter a title"),
+  });
   //heloo
   // const mo = {
   //   ...events,
@@ -54,7 +56,7 @@ export default function EventForm({
   //   const { name, value } = e.target;
   //   setValues({ ...values, [name]: value });
   // }
-
+  // console.log(valdationSchema);
   return (
     <>
       <Segment clearing>
