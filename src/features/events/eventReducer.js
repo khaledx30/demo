@@ -13,10 +13,19 @@ export const eventReducer = createSlice({
     deleteEvent: (state, action) => {
       return {
         ...state,
-        event: state.event.filter((evt) => evt.id !== action.payload),
+        event: [...state.event.filter((evt) => evt.id !== action.payload)],
+      };
+    },
+    updatedEvent: (state, action) => {
+      return {
+        ...state,
+        event: [
+          ...state.event.filter((evt) => evt.id !== action.payload.id),
+          action.payload,
+        ],
       };
     },
   },
 });
-export const { creatEvent, deleteEvent } = eventReducer.actions;
+export const { creatEvent, deleteEvent, updatedEvent } = eventReducer.actions;
 export default eventReducer.reducer;

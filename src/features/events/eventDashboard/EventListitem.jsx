@@ -6,6 +6,7 @@ import { deleteEvent } from "../eventReducer";
 import { useDispatch } from "react-redux";
 export default function EventListItem({ event }) {
   const dispatch = useDispatch();
+  console.log(event);
   return (
     <>
       <Segment.Group>
@@ -31,6 +32,10 @@ export default function EventListItem({ event }) {
             {event.attendees.map((attendees) => (
               <EventListAtendee key={attendees.id} attendees={attendees} />
             ))}
+
+            {/* {event.attendees.map((attendee) => (
+              <EventListAtendee key={attendee.id} attendee={attendee} />
+            ))} */}
           </List>
         </Segment>
         <Segment clearing>
