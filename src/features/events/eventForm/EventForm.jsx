@@ -9,6 +9,8 @@ import { Formik, Form } from "formik";
 import { advShceam } from "./schemas";
 import MyInput from "./MyInput";
 import MytextArea from "./MytextArea";
+import MySelectInput from "./MySelectIput";
+import { categoryData } from "../../../app/api/category";
 
 export default function EventForm({
   history,
@@ -57,15 +59,27 @@ export default function EventForm({
             <Form className="ui form">
               <Header sub color="teal" content={"Event Details"} />
               <MyInput name="title" placeholder="Title" type="text" />
-              <MyInput name="category" placeholder="category" type="text" />
+              <MySelectInput
+                name="category"
+                placeholder="category"
+                options={categoryData}
+              />
               <MytextArea name="description" placeholder="description" />
               <Header sub color="teal" content={"Event Location Details"} />
               <MyInput name="city" placeholder="city" type="text" />
               <MyInput name="venue" placeholder="venue" type="text" />
               <MyInput name="date" placeholder="date" type="date" />
 
-              <Button type="submit" floated="right" positive content="Submit" />
               <Button
+                loading={props.isSubmitting}
+                disabled={!props.isValid || !props.dirty || props.isSubmitting}
+                type="submit"
+                floated="right"
+                positive
+                content="Submit"
+              />
+              <Button
+                disabled={props.isSubmitting}
                 as={Link}
                 to={"/events/"}
                 type="submit"

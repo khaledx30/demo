@@ -5,6 +5,7 @@ import EventDashboard from "../../features/events/eventDashboard/EventDashboard"
 import EventDetailed from "../../features/events/eventDitailed/EventDetalied";
 import EventForm from "../../features/events/eventForm/EventForm";
 import Home from "../../features/home/Home";
+import ModalManger from "../../features/modal/ModalManger";
 import NavBar from "../../features/nav/NavBar";
 import Test from "../../features/sandbox/Test";
 // here is comment from git hub rebo lol
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <>
+      <ModalManger />
       <Route exact path={"/"} component={Home}></Route>
       <Route
         path={"/(.+)"}
